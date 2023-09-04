@@ -1,0 +1,129 @@
+program pelotita_contadora;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils, crt;
+   var p, x, y, cx, cy: byte;
+   k :ansichar;
+begin
+x := 1; y := 1; k:='a';
+
+ repeat
+
+   while x<10 do begin
+    gotoxy (x,y); write('0');
+    delay (100);
+    gotoxy (x,y); write(' ');
+
+
+
+
+    x := x+1;
+    cx := x;
+
+    gotoxy (15,15); write ('contador de x:');
+    gotoxy (15,16); write (cx);
+       if x<=9 then begin
+        gotoxy (16,16);
+
+        write(' ');
+
+    end;
+   end;
+
+   while y<10 do begin
+    gotoxy (x,y); write('0');
+    delay (100);
+    gotoxy (x,y); write(' ');
+
+
+      y := y+1;
+      cy := y;
+
+
+    gotoxy (30,15); write ('contador de y:');
+
+    gotoxy (30,16); write (cy);
+       if y<=9 then begin
+        gotoxy (31,16);
+
+        write(' ');
+
+    end;
+
+   end;
+
+   while x>1 do begin
+    gotoxy (x,y); write('0');
+    delay (100);
+    gotoxy (x,y); write(' ');
+    x := x-1;
+    cx := x;
+
+
+    gotoxy (15,15); write ('contador de x:');
+    gotoxy (15,16); write (cx);
+
+    if x<=9 then begin
+        gotoxy (16,16);
+
+        write(' ');
+
+    end;
+   end;
+
+   while y>1 do begin
+    gotoxy (x,y); write('0');
+    delay (100);
+    gotoxy (x,y); write(' ');
+    y := y-1;
+    cy := y;
+
+
+    gotoxy (30,15); write ('contador de y:');
+    gotoxy (30,16); write (cy);
+          if y<=9 then begin
+        gotoxy (31,16);
+
+        write(' ');
+
+    end;
+
+   end;
+
+
+
+ until (k='f') ;
+
+(* while x<30 do
+   begin
+    gotoxy(5,5);
+    delay(100);
+    write(x);
+    x:=x+1;
+
+
+   end;
+  while x>=1 do
+   begin
+
+    gotoxy(5,5);
+    delay(100);
+    write(x);
+    x:=x-1;
+    if x<=9 then begin
+        gotoxy (6,5);
+        delay(20);
+        write(' ');
+
+    end;
+
+
+   end;  *)
+
+
+  readln;
+end.

@@ -1,0 +1,84 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A1940523-ECFF-4D6F-B2D9-7A80B9B1BD8E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="borrar_espacios_de_la_derecha.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ejercicio_22_1.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ejercicio_23_1.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ejercicio_23_5.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="borrar_espacios_de_la_derecha">
+        <MSBuild Projects="borrar_espacios_de_la_derecha.dproj"/>
+    </Target>
+    <Target Name="borrar_espacios_de_la_derecha:Clean">
+        <MSBuild Projects="borrar_espacios_de_la_derecha.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="borrar_espacios_de_la_derecha:Make">
+        <MSBuild Projects="borrar_espacios_de_la_derecha.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ejercicio_22_1">
+        <MSBuild Projects="ejercicio_22_1.dproj"/>
+    </Target>
+    <Target Name="ejercicio_22_1:Clean">
+        <MSBuild Projects="ejercicio_22_1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ejercicio_22_1:Make">
+        <MSBuild Projects="ejercicio_22_1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ejercicio_23_1">
+        <MSBuild Projects="ejercicio_23_1.dproj"/>
+    </Target>
+    <Target Name="ejercicio_23_1:Clean">
+        <MSBuild Projects="ejercicio_23_1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ejercicio_23_1:Make">
+        <MSBuild Projects="ejercicio_23_1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ejercicio_23_5">
+        <MSBuild Projects="ejercicio_23_5.dproj"/>
+    </Target>
+    <Target Name="ejercicio_23_5:Clean">
+        <MSBuild Projects="ejercicio_23_5.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ejercicio_23_5:Make">
+        <MSBuild Projects="ejercicio_23_5.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Demo">
+        <MSBuild Projects="Demo.dproj"/>
+    </Target>
+    <Target Name="Demo:Clean">
+        <MSBuild Projects="Demo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Demo:Make">
+        <MSBuild Projects="Demo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="borrar_espacios_de_la_derecha;ejercicio_22_1;ejercicio_23_1;ejercicio_23_5;Demo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="borrar_espacios_de_la_derecha:Clean;ejercicio_22_1:Clean;ejercicio_23_1:Clean;ejercicio_23_5:Clean;Demo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="borrar_espacios_de_la_derecha:Make;ejercicio_22_1:Make;ejercicio_23_1:Make;ejercicio_23_5:Make;Demo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

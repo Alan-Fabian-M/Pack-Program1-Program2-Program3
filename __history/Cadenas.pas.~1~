@@ -1,0 +1,54 @@
+unit Cadenas;
+
+interface
+ function EsVocal (x:char):boolean;
+ function CantEsp (x:string):string;
+
+
+implementation
+ var
+ vocales: set of Char = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'];
+
+ function EsVocal (x:char):boolean;
+  begin
+    if x in vocales then
+
+     begin
+
+      Esvocal:= true
+
+     end;
+
+     Esvocal:=false
+
+  end;
+
+  // cantidades de espacios
+  function CantEsp (x:string):string ;
+  var
+   i, c, n:cardinal;
+  begin
+    i:=1;
+    c:=0;
+    n:= length(x);
+     while i<=n do
+       begin
+        if x[i]=' ' then
+         begin
+          c:= c+1;
+
+         end;
+        i:= i+1;
+       end;
+
+   CantEsp:= c;
+
+  end;
+
+
+
+
+
+
+
+end.

@@ -1,0 +1,83 @@
+unit Uvector;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Menus, Vcl.Grids, Cvector;
+
+type
+  TForm1 = class(TForm)
+    TxTdimen: TEdit;
+    TxTEntrada: TEdit;
+    Button1: TButton;
+    BtCargar: TButton;
+    Label2: TLabel;
+    SGvector: TStringGrid;
+    TxTSalida: TEdit;
+    Label3: TLabel;
+    Button4: TButton;
+    MainMenu1: TMainMenu;
+    incio1: TMenuItem;
+    incio2: TMenuItem;
+    Sumar1: TMenuItem;
+    ModificarElemento1: TMenuItem;
+    procedure Button1Click(Sender: TObject);
+    procedure BtCargarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Sumar1Click(Sender: TObject);
+    procedure ModificarElemento1Click(Sender: TObject);
+  private
+    { Private declarations }
+    v : vector;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+cant : byte;
+begin
+cant :=  StrToInt(TxTdimen.Text);
+ SGVector.ColCount :=  cant;
+end;
+
+procedure TForm1.BtCargarClick(Sender: TObject);
+var
+ i : integer ;
+ e : real ;
+begin
+ for i := 1 to SGvector.ColCount do
+   begin
+     e:= StrToFloat(SGvector.Cells[ i-1,0]);
+     v.AddElement(e);
+   end;
+
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  V := vector.Create;
+end;
+procedure TForm1.ModificarElemento1Click(Sender: TObject);
+begin
+v.Modelemnt()
+end;
+
+procedure TForm1.Sumar1Click(Sender: TObject);
+var
+res : real ;
+begin
+ res := V.Sumar;
+ TxTSalida.Text:= FloatToStr(res);
+
+end;
+
+end.

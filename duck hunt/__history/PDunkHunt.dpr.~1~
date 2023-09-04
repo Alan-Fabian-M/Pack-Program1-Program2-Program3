@@ -1,0 +1,15 @@
+program PDunkHunt;
+
+uses
+  Vcl.Forms,
+  PDuckHunt in 'PDuckHunt.pas' {Form1},
+  UDunkHunt in 'UDunkHunt.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

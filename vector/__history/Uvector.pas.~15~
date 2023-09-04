@@ -1,0 +1,175 @@
+unit Uvector;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Menus, Vcl.Grids, Cvector;
+
+type
+  TForm1 = class(TForm)
+    TxTdimen: TEdit;
+    TxTEntrada: TEdit;
+    Button1: TButton;
+    BtCargar: TButton;
+    Label2: TLabel;
+    SGvector: TStringGrid;
+    TxTSalida: TEdit;
+    Label3: TLabel;
+    BtMostrar: TButton;
+    MainMenu1: TMainMenu;
+    incio1: TMenuItem;
+    incio2: TMenuItem;
+    Sumar1: TMenuItem;
+    ModificarElemento1: TMenuItem;
+    eliminarelemento1: TMenuItem;
+    insertarelemento1: TMenuItem;
+    mayor1: TMenuItem;
+    eliminarunelemento1: TMenuItem;
+    Eliminatodosloselementos1: TMenuItem;
+    Eliminatodosloselementos2: TMenuItem;
+    ElementoMasRepetido1: TMenuItem;
+    eliminarelementosrepetidos1: TMenuItem;
+    ordenardemenoramayor1: TMenuItem;
+    procedure Button1Click(Sender: TObject);
+    procedure BtCargarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Sumar1Click(Sender: TObject);
+    procedure ModificarElemento1Click(Sender: TObject);
+    procedure BtMostrarClick(Sender: TObject);
+    procedure eliminarelemento1Click(Sender: TObject);
+    procedure insertarelemento1Click(Sender: TObject);
+    procedure mayor1Click(Sender: TObject);
+    procedure eliminarunelemento1Click(Sender: TObject);
+    procedure Eliminatodosloselementos1Click(Sender: TObject);
+    procedure Eliminatodosloselementos2Click(Sender: TObject);
+    procedure ElementoMasRepetido1Click(Sender: TObject);
+    procedure eliminarelementosrepetidos1Click(Sender: TObject);
+    procedure ordenardemenoramayor1Click(Sender: TObject);
+  private
+    { Private declarations }
+    v : vector;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+cant : byte;
+begin
+cant :=  StrToInt(TxTdimen.Text);
+ SGVector.ColCount :=  cant;
+end;
+
+procedure TForm1.ElementoMasRepetido1Click(Sender: TObject);
+begin
+ txtsalida.Text:= FloatToStr(V.elementMasRep);
+end;
+
+procedure TForm1.eliminarelemento1Click(Sender: TObject);
+var
+ p : word ;
+begin
+ p := StrToInt(txtEntrada.Text);
+  V.DelElement(p);
+end;
+
+procedure TForm1.eliminarelementosrepetidos1Click(Sender: TObject);
+begin
+ v.DelElementsRep;
+end;
+
+procedure TForm1.eliminarunelemento1Click(Sender: TObject);
+begin
+ v.DelOneElement(StrToFloat(txtentrada.Text));
+end;
+
+procedure TForm1.Eliminatodosloselementos1Click(Sender: TObject);
+begin
+ v.DelAllElement(StrToFloat(txtentrada.Text));
+end;
+
+procedure TForm1.Eliminatodosloselementos2Click(Sender: TObject);
+begin
+  txtSalida.Text:= IntToStr(v.frecuencia(StrToFloat(TxTentrada.Text)));
+end;
+
+procedure TForm1.BtMostrarClick(Sender: TObject);
+var
+ i : word ;
+ e : real ;
+begin
+   SGvector.ColCount:= v.Dim;
+  for i := 1 to v.dim  do
+    begin
+     e := v.getElement(i);
+     SGvector.Cells[i-1,0]:= FloatToStr(e);
+    end;
+
+
+end;
+
+procedure TForm1.BtCargarClick(Sender: TObject);
+var
+ i : integer ;
+ e : real ;
+begin
+   v.Redimensionar(StrToInt(TxtDimen.Text));
+  for i := 1 to v.Dim do
+   begin
+
+     e:= StrToFloat(SGvector.Cells[ i-1,0]);
+     v.Modelemnt(i,e);
+
+
+    // v.AddElement(e);
+   end;
+
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  V := vector.Create;
+end;
+procedure TForm1.insertarelemento1Click(Sender: TObject);
+var
+ p : word ;
+ e : real ;
+begin
+ p := StrToInt(txtEntrada.Text[1]);
+ e := StrTofloat(txtEntrada.Text[3]);
+  V.InsElement(p,e);
+end;
+
+procedure TForm1.mayor1Click(Sender: TObject);
+begin
+ txtSalida.Text:= floatToStr(v.Mayor);
+end;
+
+procedure TForm1.ModificarElemento1Click(Sender: TObject);
+begin
+v.Modelemnt(StrToInt(TxTEntrada.Text[1]),(StrToFloat(TxTEntrada.Text[3])));
+end;
+
+procedure TForm1.ordenardemenoramayor1Click(Sender: TObject);
+begin
+ v.OrdenarMenMay;
+end;
+
+procedure TForm1.Sumar1Click(Sender: TObject);
+var
+res : real ;
+begin
+ res := V.Sumar;
+ TxTSalida.Text:= FloatToStr(res);
+
+end;
+
+end.

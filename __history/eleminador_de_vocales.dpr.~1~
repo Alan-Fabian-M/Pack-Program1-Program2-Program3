@@ -1,0 +1,31 @@
+program eleminador_de_vocales;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  crt in 'crt.pas';
+var
+ t: string;
+ i, c, z: byte;
+
+begin
+ write('escriba un texto:');
+ readln(t);
+ z:=length(t);
+
+ for i := 1 to z do
+   begin
+
+     if t[i]='a' then
+
+
+
+   end;
+
+ readln;
+
+
+end.

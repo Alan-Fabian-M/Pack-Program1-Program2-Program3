@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/09/16 20:54:07.000.912,=C:\Users\Hp\Documents\Embarcadero\Studio\Projects\Project3PCH1.h</Transaction>
+    <Transaction>2022/09/16 20:54:16.000.859,=C:\Users\Hp\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2022/09/16 21:56:39.000.656,C:\Users\Hp\Documents\Embarcadero\Studio\Projects\Unit1.h=C:\Users\Hp\Documents\Embarcadero\Studio\Projects\C++\tarea\Unit1.h</Transaction>
+    <Transaction>2022/09/16 21:56:39.000.656,C:\Users\Hp\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Hp\Documents\Embarcadero\Studio\Projects\C++\tarea\Unit1.dfm</Transaction>
+    <Transaction>2022/09/16 21:56:39.000.656,C:\Users\Hp\Documents\Embarcadero\Studio\Projects\Unit1.cpp=C:\Users\Hp\Documents\Embarcadero\Studio\Projects\C++\tarea\Unit1.cpp</Transaction>
+    <Transaction>2022/09/16 21:56:40.000.870,C:\Users\Hp\Documents\Embarcadero\Studio\Projects\Project3PCH1.h=C:\Users\Hp\Documents\Embarcadero\Studio\Projects\C++\tarea\Project3PCH1.h</Transaction>
+    <Transaction>2022/09/16 21:56:42.000.042,C:\Users\Hp\Documents\Embarcadero\Studio\Projects\Project3.cbproj=C:\Users\Hp\Documents\Embarcadero\Studio\Projects\C++\tarea\Project3.cbproj</Transaction>
+  </Transactions>
+</BorlandProject>

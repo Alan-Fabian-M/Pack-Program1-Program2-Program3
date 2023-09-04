@@ -1,0 +1,19 @@
+unit UCimpresora;
+
+interface
+
+type
+  imprecosa= class
+      private
+
+      public
+
+
+  end;
+
+
+
+
+implementation
+
+end.

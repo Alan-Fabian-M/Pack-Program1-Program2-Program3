@@ -1,0 +1,14 @@
+program ProyectoSpaceShip;
+
+uses
+  Vcl.Forms,
+  uSpaceShip in 'uSpaceShip.pas' {SpaceShip};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TSpaceShip, SpaceShip);
+  Application.Run;
+end.

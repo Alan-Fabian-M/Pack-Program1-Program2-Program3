@@ -1,0 +1,35 @@
+unit classNum;
+
+interface
+type
+  numeros = class
+    private
+      num : integer ;
+
+    public
+    function MayoMen: Word;
+     function NumDig: word;
+     procedure ElimNum  (x: byte );
+  end;
+
+implementation
+
+{ numeros }
+
+procedure numeros.ElimNum(x: byte);
+begin
+
+end;
+
+function numeros.MayoMen: Word;
+begin
+
+end;
+
+function numeros.NumDig: word;
+begin
+
+end;
+
+end.
+

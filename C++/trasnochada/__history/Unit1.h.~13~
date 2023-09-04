@@ -1,0 +1,81 @@
+//---------------------------------------------------------------------------
+
+#ifndef Unit1H
+#define Unit1H
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.Menus.hpp>
+#include <Vcl.Grids.hpp>
+//---------------------------------------------------------------------------
+class TForm1 : public TForm
+{
+__published:	// IDE-managed Components
+	TButton *Button1;
+	TMainMenu *MainMenu1;
+	TMenuItem *ejercicios1;
+	TMenuItem *ejercicios2;
+	TEdit *Edit1;
+	TEdit *Edit2;
+	TMenuItem *eliminarpares1;
+	TStringGrid *StringGrid1;
+	TMenuItem *cargarvector1;
+	TMenuItem *generarcadena1;
+	TMenuItem *Escapicua1;
+	TMenuItem *eliminar1;
+	TMenuItem *Eliminarvectorposicion1;
+	TMenuItem *examen1;
+	TMenuItem *examen2;
+	TMenuItem *CargarStringVector1;
+	TMenuItem *cargarvector2377321;
+	TMenuItem *Eliminarnumerodelacadenahola12como1holacomo1;
+	TStringGrid *SGMatriz;
+	TMenuItem *Dunnia1;
+	TMenuItem *sumarseriefraciones1;
+	TMenuItem *Combinatoria1;
+	TLabel *Label1;
+	TMenuItem *verificarselosnumerosestanordenados1;
+	TMenuItem *N202312;
+	TMenuItem *seleccionarunnumero1;
+	TMenuItem *Contarvocales1;
+	TMenuItem *matriz1;
+	TMenuItem *Shirley1;
+	TMenuItem *Contreras1;
+	TMenuItem *Sumarlosdigitosenlaposicionimpar1;
+	TMenuItem *Sumarlosdigitosimparesyrestarlosdigitosparesenunvector1;
+	TMenuItem *N51213214321543211;
+	TMenuItem *MediaAritmeticaVector1;
+	TLabel *Label2;
+	void __fastcall ejercicios2Click(TObject *Sender);
+	void __fastcall eliminarpares1Click(TObject *Sender);
+	void __fastcall cargarvector1Click(TObject *Sender);
+	void __fastcall generarcadena1Click(TObject *Sender);
+	void __fastcall eliminar1Click(TObject *Sender);
+	void __fastcall Eliminarvectorposicion1Click(TObject *Sender);
+	void __fastcall examen2Click(TObject *Sender);
+	void __fastcall cargarvector2377321Click(TObject *Sender);
+	void __fastcall Eliminarnumerodelacadenahola12como1holacomo1Click(TObject *Sender);
+	void __fastcall sumarseriefraciones1Click(TObject *Sender);
+	void __fastcall Combinatoria1Click(TObject *Sender);
+	void __fastcall verificarselosnumerosestanordenados1Click(TObject *Sender);
+	void __fastcall N202312Click(TObject *Sender);
+	void __fastcall seleccionarunnumero1Click(TObject *Sender);
+	void __fastcall Contarvocales1Click(TObject *Sender);
+	void __fastcall matriz1Click(TObject *Sender);
+	void __fastcall Sumarlosdigitosenlaposicionimpar1Click(TObject *Sender);
+	void __fastcall Sumarlosdigitosimparesyrestarlosdigitosparesenunvector1Click(TObject *Sender);
+	void __fastcall N51213214321543211Click(TObject *Sender);
+	void __fastcall MediaAritmeticaVector1Click(TObject *Sender);
+
+
+
+private:	// User declarations
+public:		// User declarations
+	__fastcall TForm1(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TForm1 *Form1;
+//---------------------------------------------------------------------------
+#endif

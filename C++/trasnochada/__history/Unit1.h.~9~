@@ -1,0 +1,63 @@
+//---------------------------------------------------------------------------
+
+#ifndef Unit1H
+#define Unit1H
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.Menus.hpp>
+#include <Vcl.Grids.hpp>
+//---------------------------------------------------------------------------
+class TForm1 : public TForm
+{
+__published:	// IDE-managed Components
+	TButton *Button1;
+	TMainMenu *MainMenu1;
+	TMenuItem *ejercicios1;
+	TMenuItem *ejercicios2;
+	TEdit *Edit1;
+	TEdit *Edit2;
+	TMenuItem *eliminarpares1;
+	TStringGrid *StringGrid1;
+	TMenuItem *cargarvector1;
+	TMenuItem *generarcadena1;
+	TMenuItem *Escapicua1;
+	TMenuItem *eliminar1;
+	TMenuItem *Eliminarvectorposicion1;
+	TMenuItem *examen1;
+	TMenuItem *examen2;
+	TMenuItem *CargarStringVector1;
+	TMenuItem *cargarvector2377321;
+	TMenuItem *Eliminarnumerodelacadenahola12como1holacomo1;
+	TStringGrid *StringGrid2;
+	TMenuItem *Dunnia1;
+	TMenuItem *sumarseriefraciones1;
+	TMenuItem *Combinatoria1;
+	TLabel *Label1;
+	TMenuItem *verificarselosnumerosestanordenados1;
+	TMenuItem *N202311;
+	TMenuItem *N202312;
+	void __fastcall ejercicios2Click(TObject *Sender);
+	void __fastcall eliminarpares1Click(TObject *Sender);
+	void __fastcall cargarvector1Click(TObject *Sender);
+	void __fastcall generarcadena1Click(TObject *Sender);
+	void __fastcall eliminar1Click(TObject *Sender);
+	void __fastcall Eliminarvectorposicion1Click(TObject *Sender);
+	void __fastcall examen2Click(TObject *Sender);
+	void __fastcall cargarvector2377321Click(TObject *Sender);
+	void __fastcall Eliminarnumerodelacadenahola12como1holacomo1Click(TObject *Sender);
+	void __fastcall sumarseriefraciones1Click(TObject *Sender);
+	void __fastcall Combinatoria1Click(TObject *Sender);
+	void __fastcall verificarselosnumerosestanordenados1Click(TObject *Sender);
+	void __fastcall N202312Click(TObject *Sender);
+
+private:	// User declarations
+public:		// User declarations
+	__fastcall TForm1(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TForm1 *Form1;
+//---------------------------------------------------------------------------
+#endif

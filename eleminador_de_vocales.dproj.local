@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/07/01 23:12:29.000.537,=C:\Users\Pc\Documents\Embarcadero\Studio\Projects\crt.pas</Transaction>
+    <Transaction>2021/07/01 23:19:29.000.145,C:\Users\Pc\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\Users\Pc\Documents\Embarcadero\Studio\Projects\eleminadors_de_vocales.dproj</Transaction>
+    <Transaction>2021/07/01 23:20:31.490,C:\Users\Pc\Documents\Embarcadero\Studio\Projects\eleminador_de_vocales.dproj=C:\Users\Pc\Documents\Embarcadero\Studio\Projects\eleminadors_de_vocales.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

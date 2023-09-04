@@ -1,0 +1,31 @@
+program suma_octal;
+Var
+  a,b,c: byte;
+  n,m,x,y : integer;
+Begin
+  Writeln('Inserte los numeros:');
+  readln(n);
+  writeln('Inserte otro numero');
+  readln(m);
+  a  := 8;
+  b := 0;
+  x := 0;
+  y := 1;
+  While ( n>0)Or (m>0) Do
+    Begin
+      c := (n Mod 10+b)+m Mod 10;
+      n := n Div 10;
+      m := m Div 10;
+      b := 0;
+      If c>a-1 Then
+        Begin
+          c := c-a;
+          b := 1;
+        End;
+      x := x+c*y;
+      y := y*10;
+    End;
+    x := x+b*y;
+  writeln('R:' ,x);
+  readln;
+End.

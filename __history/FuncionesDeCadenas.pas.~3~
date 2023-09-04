@@ -1,0 +1,80 @@
+unit FuncionesDeCadenas;
+
+interface
+
+function EsVocal (x:char): boolean ;
+function ContEsp (x:string):byte;
+function ContVoc (x:string): byte;
+function EspIzq  (x:char): boolean ;
+
+
+implementation
+ function ContVoc (x:string): byte;
+ var i, c,  n : Byte;
+
+ begin
+  i:= 1;
+  c:= 0;
+  n := length(x);
+  while i<=n  do
+   begin
+    if EsVocal(x[i]) then
+      begin
+       c:= c+1;
+
+      end;
+     i:= i+1;
+   end;
+
+   ContVoc:= c;
+
+
+ end;
+
+ function ContEsp (x:string): byte;
+ var i, c, n:byte;
+
+
+ begin
+  c:=0;
+  n:= length(x);
+  i:= 1;
+  while i<=n  do
+   begin
+    if x[i] = ' ' then
+      begin
+       c:= c+1;
+
+      end;
+
+    i:= i+1;
+
+   end;
+
+
+  ContEsp := c;
+
+
+ end;
+
+ function EsVocal (x:char): boolean ;
+ var voc: string;
+ p: byte;
+ begin
+   voc := 'aeiouàèìòù';
+   p:= pos(x,voc);
+   EsVocal := p>0;
+
+
+ end;
+  function EspIzq  (x:char): boolean ;
+ var esp: char;
+ p: byte;
+ begin
+   esp := ' ';
+   p:= pos(x,esp);
+   EspIzq := p>0;
+
+
+ end;
+end.

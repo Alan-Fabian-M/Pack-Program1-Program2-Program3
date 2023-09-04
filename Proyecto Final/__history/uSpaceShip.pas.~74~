@@ -1,0 +1,97 @@
+unit uSpaceShip;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.ActnMan,
+  Vcl.ActnColorMaps, Vcl.Buttons, Vcl.Imaging.pngimage;
+
+type
+  TSpaceShip = class(TForm)
+    enem1: TImage;
+    nave: TImage;
+    enem2: TImage;
+    enem3: TImage;
+    Timer1: TTimer;
+    enem4: TImage;
+    enem5: TImage;
+    enem6: TImage;
+    enem7: TImage;
+    enem8: TImage;
+    enem9: TImage;
+    enem10: TImage;
+    enem11: TImage;
+    enem12: TImage;
+    enem13: TImage;
+    enem14: TImage;
+    enem15: TImage;
+    balas: TImage;
+    Timer2: TTimer;
+    vida1: TImage;
+    vida2: TImage;
+    vida3: TImage;
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure Timer2Timer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  SpaceShip: TSpaceShip;
+
+implementation
+
+{$R *.dfm}
+
+procedure TSpaceShip.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+
+ if (key ='s') or (key ='S') then begin
+ nave.Top:=nave.Top+10;
+ end;
+ if (key='w') or (key='W') then begin
+   nave.Top:= nave.Top-10;
+ end;
+ if (key='d') or (key='D') then begin
+   nave.Left:= nave.Left+10;
+ end;
+ if (key='a') or (key='A')then begin
+   nave.Left:= nave.Left-10;
+ end;
+
+end;
+
+procedure TSpaceShip.Timer1Timer(Sender: TObject);
+begin
+ enem1.Top:= enem1.Top+5;
+ enem2.Top:= enem2.Top+5;
+ enem3.Top:= enem3.Top+5;
+ enem4.Top:= enem4.Top+5;
+ enem5.Top:= enem5.Top+5;
+ enem6.Top:= enem6.Top+5;
+ enem7.Top:= enem7.Top+5;
+ enem8.Top:= enem8.Top+5;
+ enem9.Top:= enem9.Top+5;
+ enem10.Top:= enem10.Top+5;
+ enem11.Top:= enem11.Top+5;
+ enem12.Top:= enem12.Top+5;
+ enem13.Top:= enem13.Top+5;
+ enem14.Top:= enem14.Top+5;
+ enem15.Top:= enem15.Top+5;
+
+end;
+
+procedure TSpaceShip.Timer2Timer(Sender: TObject);
+begin
+ balas.Top:= balas.Top-8;
+ if balas.Top <= -1 then begin
+    balas.top:= nave.Top;
+    balas.Left:= nave.Left;
+ end;
+
+ end;
+end.

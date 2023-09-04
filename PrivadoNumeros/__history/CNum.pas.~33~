@@ -1,0 +1,506 @@
+unit CNum;
+
+interface
+ uses System.Math;
+ type
+
+     NumeroNatural = class
+       private
+          valor : cardinal ;
+
+          function Decenas (n : cardinal ): string ;
+          function Centenas (n : cardinal ) : string ;
+       public
+          procedure SetValue (v : cardinal);
+          function GetValue: cardinal ;
+          procedure DelDigit (p : byte);
+          function GetMaxDigit : byte;
+          function CantDigit : byte;
+          procedure DigitDent (p:byte ;a:cardinal);
+          procedure NumDent (p: byte  ; a : cardinal);
+          procedure ModDigit (p: byte; a : cardinal);
+          function GetDigit (p:byte ): byte ;
+          procedure intercambiar (f,i: byte);
+          procedure InvNum;
+
+          function NumToLit: string;
+          function NumtoRom: string;
+          function NumToBin : string ;
+          function NumToHex : string ;
+          function NumToOct : string ;
+          //////////////////////////////////////
+          procedure Variar(t,i:byte);
+
+          //////////////////////////////////////////
+
+   //       procedure ordenar(Num: cardinal ) ;
+
+    ///      function NumPosi : string ;
+    //      procedure IntRang(var f, i:byte);
+
+
+     // examen
+        (*  procedure ELimNumRep ;
+
+          function NumMasRep:byte ;
+
+          function  SacarAllNum(num : byte):string;
+     *)
+     //7 fuera del examen
+     function SacarMayCantDig:byte;
+     function SacarTodoNum(num : byte):byte ;
+     procedure ElimRep;
+
+
+     end;
+implementation
+
+uses
+  System.SysUtils;
+
+
+{ NumeroNatural }
+
+/////////////examen
+(*
+
+            *)
+
+/////////////////////////// despues del examen
+
+procedure NumeroNatural.ElimRep;
+var
+num,c,c2,v2,long: byte ;
+v : cardinal;
+begin
+ c2:=0;
+ while c2 <2 do
+  begin
+    v := valor ;
+    num := SacarMayCantDig;
+    long :=   SacarTodoNum(num);
+    c := 1 ;
+    Inc(c2);
+       while c < CantDigit do
+         begin
+           v2 := v mod 10 ;
+           v := v div 10 ;
+             if (v2 = num) and (long-1 >0) then
+               begin
+                DelDigit(c);
+                Dec(long);
+               end
+               else Inc(c);
+         end;
+
+  end;
+
+end;
+
+
+function NumeroNatural.SacarMayCantDig:byte;
+ var
+ v2,num3,num,num2: byte ;
+
+ v : cardinal ;
+ begin
+  v := valor ;
+  v2 := v mod 10 ;
+  v :=  v div 10;
+  num := SacarTodoNum (v2);
+    while v>0 do
+     begin
+      v2 := v mod 10 ;
+      v :=  v div 10;
+      num2 := SacarTodoNum (v2);
+       if num2>=num then
+         begin
+            num := num2;
+            num3 := v2;
+         end;
+     end;
+
+  result := num3 ;
+ end;
+
+
+function NumeroNatural.SacarTodoNum(num : byte):byte ;
+var
+v2,c : byte;
+v : cardinal;
+begin
+  c:= 0 ;
+  v := valor ;
+  while v > 0 do
+   begin
+    v2 := v mod 10 ;
+    v := v div 10 ;
+     if v2 = num then Inc(c);
+   end;
+   result := c ;
+end;
+
+
+
+
+
+///////////
+function NumeroNatural.CantDigit: byte ;
+var
+c: byte;
+begin
+ c := trunc(log10(valor));
+ result:= c+1;
+
+end;
+
+function NumeroNatural.NumToLit: string;
+const
+numeros : array [1..4] of integer =(0,0,0,0);
+ miles : array [0..4] of string =
+ (' ','mil','millon','billon','trillon');
+ var
+ n : cardinal ;
+ a : byte ;
+begin
+a := 0;
+ n := valor ;
+   if valor = 0  then
+   result := 'cero'
+    else
+    if valor = 100 then
+    result := 'cien'
+    else
+    if valor = 1000000 then
+    result := 'un millon'
+   else
+     begin
+
+      while n > 1 do
+      begin
+        result := Centenas(n mod 1000) +' '+ miles[a]+' ' +  result ;
+        n := n div 1000;
+        a := a +1;
+      end;
+      if (valor mod 1000)=0 then result:= centenas(valor div 1000)+' '+miles[a-1];
+      if (valor mod 1000000)=0 then result:= centenas(valor div 1000000)+' '+miles[a-1];
+      if (valor div 1000)= 1  then result := miles[a]+' '+result;
+      if (valor div 1000000)=1 then result:= 'un '+miles[a]+' '+ result ;
+     end;
+
+   (*
+    while n > 0 do
+     begin
+      d := n mod 1000;
+      result := centenas(d);
+      n := n div 1000;
+     end;
+      *)
+
+    (*  if (a>0) and (a<=6)then
+        result := centenas ( valor div 1000) +' '+miles [1]+' '+centenas (valor mod 1000)
+      else if (a>0) and (a<=9) then
+         result := centenas (valor div 1000000) +' '+miles [2]+' '+ centenas ((valor mod 1000000)div 1000)+' '+miles [1]+' '+ centenas (valor mod 1000)
+         else
+           result := centenas(valor );   *)
+end;
+
+function NumeroNatural.Centenas(n : cardinal ): string;
+const
+centenas : array [0..9]of string = ('','ciento','doceinto','treciento','cuatrociento','quiniento','seiciento','seteciento','ochociento','noveciento');
+
+begin
+        result := centenas [n div 100] +' '+ decenas (n mod 100)
+end;
+
+function NumeroNatural.Decenas(n : cardinal ): string;
+const
+unidades : array [0..15] of string =('','uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','once','doce','trece','catorce','quince') ;
+decenas : array [1..9] of string = ('diez','veinte','treinta','cuarenta','cincuenta','sesenta','setenta','ochenta','noventa') ;
+
+begin
+   if n < 16 then
+   result := unidades [n]
+   else if (n mod 10) =0  then  result:= decenas [n div 10 ]
+         else result := decenas [n div 10 ]+' y '+ unidades [n mod 10];
+end;
+
+procedure NumeroNatural.DelDigit(p: byte);
+var
+   k, n1 , n2 : cardinal ;
+begin
+   k:= trunc(power(10,p-1));
+   n1:=  ( valor div k ) div 10;
+   n2:=    valor mod k;
+   valor := (n1*k)+n2;
+end;
+
+function NumeroNatural.GetDigit (p : byte) : byte ;
+begin
+  result:= (valor div trunc(power(10, p-1)))mod 10 ;
+end;
+
+function NumeroNatural.GetMaxDigit: byte;
+var
+  n : cardinal ;
+  may, d : byte ;
+
+begin
+    n:= valor ;
+    may := n mod 10 ;
+    while n>0 do
+     begin
+        d:= n mod 10 ;
+        if d>may then
+         begin
+           may := d ;
+         end;
+         n:= n div 10 ;
+     end;
+     result := may ;
+end;
+
+procedure NumeroNatural.ModDigit (p : byte; a : cardinal);
+var
+    k: cardinal ;
+begin
+  k:= trunc(power(10,p-1));
+  valor:= (((valor div k)div 10)*10+a)*k+(valor mod k);
+end;
+
+procedure NumeroNatural.NumDent(p: byte; a: cardinal);
+var
+  n, k1  : cardinal;
+  k : byte;
+begin
+  k:= trunc(power(10,p-1));
+  k1:=trunc(log10(a)+1);
+  k1:= trunc (power(10,k1));
+  n:= ((valor div k)*k1 + a)*k +(valor mod k);
+  valor := n;
+
+end;
+
+ (*
+
+function NumeroNatural.NumPosi: string;
+var
+ t : string ;
+ k, v : cardinal ;
+ c,c2,Cant,f,i : byte ;
+begin
+  t :='';
+  c := 1 ;
+  c2 := 1;
+  Cant:= CantDigit;
+   f := cant-1;
+   i := 1 ;
+   v := valor ;
+  while c<= cant do
+   begin
+     ordenar(c);
+     while c2<= cant-1 do
+        begin
+         k := valor mod trunc(power(10,cant -1));
+          while i<f do
+            begin
+             t := IntToStr(valor)+' , '+ t;
+             IntRang(f,i);
+            end;
+          f := cant-1;
+          i := 1 ;
+          Inc(c2);
+        end;
+     c2:=1;
+     valor := v;
+     Inc(c);
+   end;
+
+ result := t ;
+end;
+
+procedure NumeroNatural.IntRang(var f,i:byte);
+begin
+      Intercambiar (f,i);
+end;
+          *)
+
+
+////////////////////////
+(*procedure NumeroNatural.ordenar(Num: cardinal );
+var
+v : string ;
+begin
+  v := '';
+  if num = 1  then
+   begin
+    v := v + IntToStr(valor mod 10);
+    v := v + IntToStr(valor div 10);
+    valor := StrToInt(v);
+   end
+     else if num = trunc(log10(valor)+1) then
+       begin
+         valor :=  valor ;
+       end
+          else
+          begin
+               v := v + IntToStr((valor div trunc (power(10,num-1)))mod 10);
+               v := v + IntToStr((valor div trunc (power(10,num-1)))div 10);
+               v := v + IntToStr(valor mod trunc(power(10, num-1)));
+               valor := StrToInt(v);
+          end;
+end;                  *)
+
+
+////////////////////////////////////////////////
+
+procedure NumeroNatural.Variar(t,i:byte);
+ begin
+
+
+ end;
+
+///////////////////////////////////////////////
+
+procedure NumeroNatural.DigitDent (p:byte ;a:cardinal);
+ var
+   n ,k,u : cardinal ;
+begin
+  u := valor ;
+  k:= trunc(power(10,p-1));
+  n:= ((u div k )*10 + a)*k +(u mod k);
+  valor:= n ;
+
+end;
+
+
+
+
+
+function NumeroNatural.NumToBin: string;
+var
+ b : string ;
+ n : cardinal ;
+begin
+  b := '';
+  n := valor ;
+  while n > 0 do
+  begin
+   b:= IntToStr(n mod 2) + b ;
+   n := n div 2 ;
+  end;
+  result := b;
+
+end;
+
+function NumeroNatural.NumToOct: string;
+var
+ b : string ;
+ n : cardinal ;
+
+begin
+  n := valor ;
+  b := '';
+  while n > 0 do
+  begin
+   b := IntToStr(n mod 8) + b;
+   n := n div 8;
+  end;
+  result := b;
+end;
+
+
+
+function NumeroNatural.NumtoRom: string;
+const
+
+romanos  : array [1..4,1..9] of string =
+(
+('I','II','III','IV','V','VI','VII','VIII','IX'),
+('X','XX','XXX','XL','L','LX','LXX','LXXX','XC'),
+('C','CC','CCC','CD','D','DC','DCC','DCCC','CM'),
+('M','MM','MMM','IV-','V-','VI-','VII-','VIII-','IX-')
+
+);
+var
+n : cardinal ;
+d ,c : byte;
+roman: string ;
+begin
+  n := valor ;
+  roman:='';
+  c := 1 ;
+   while n > 0   do
+   begin
+     d := n mod 10 ; ;
+       if d >0 then
+       begin
+         roman := romanos[c,d] + roman ;
+       end;
+       c:= c+1;
+      n := n div 10 ;
+   end;
+
+   result := roman ;
+end;
+
+function NumeroNatural.NumToHex: string;
+const
+ Dig = '0123456789ABCDEF';
+var
+  n : cardinal ;
+  b : string;
+ begin
+    b := '';
+    n := valor ;
+    while n > 0 do
+  begin
+     b := Dig[(n mod 16)+1]+ b;
+     n := n div 16 ;
+  end;
+  result := b;
+ end;
+
+
+
+procedure NumeroNatural.intercambiar(f, i: byte);
+var
+ di : byte ;
+begin
+ di := GetDigit(i) ;
+ ModDigit(i,GetDigit(f));
+ ModDigit(f,di);
+
+end;
+
+procedure NumeroNatural.InvNum;
+var
+ f, i : byte;
+begin
+
+ f := CantDigit;
+ i:= 1;
+ while i< f do
+  begin
+   intercambiar (f,i);
+   i := i +1;
+   f := f-1;
+  end;
+
+
+ valor := valor ;
+end;
+
+function NumeroNatural.GetValue: cardinal;
+begin
+    result := valor;
+end;
+
+procedure NumeroNatural.SetValue(v: cardinal);
+begin
+   valor := v;
+end;
+
+
+
+end.

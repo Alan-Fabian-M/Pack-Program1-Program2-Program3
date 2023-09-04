@@ -1,0 +1,34 @@
+unit UCfoco;
+
+interface
+
+type
+   foco = class
+    private
+       marca :string;
+
+    public
+       procedure encender(estado:byte);
+       function ObtenerNivelInt: integer ;
+
+   end;
+
+implementation
+
+
+ control+shift+c
+
+
+{ foco }
+
+procedure foco.encender(estado: byte);
+begin
+
+end;
+
+function foco.ObtenerNivelInt: integer;
+begin
+
+end;
+
+end.

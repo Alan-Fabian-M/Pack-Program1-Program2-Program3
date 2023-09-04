@@ -1,0 +1,28 @@
+program ejercicio_22_6_fibonacci;
+
+var a, b, n, v, c:word;
+
+ begin
+ a := 0;
+ b := 1;
+ v := 2;
+
+  writeln('serie de fibonacci');
+  write('la cantidad de terminos que quiere que aparesca:');
+  readln(n);
+  writeln(a);
+  writeln(b);
+
+  repeat
+   a := b;
+   b := c;
+   c := a+b;
+   writeln(c);
+   v := v+1;
+
+
+  until v>=n;
+
+  readln;
+ end.
+

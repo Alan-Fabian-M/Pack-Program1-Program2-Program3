@@ -1,0 +1,184 @@
+unit FNum;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Cnum, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    menu: TMainMenu;
+    metodos1: TMenuItem;
+    CambiarValor: TMenuItem;
+    obtenervalor1: TMenuItem;
+    obtenervalor2: TMenuItem;
+    obtenerdigitomayor1: TMenuItem;
+    Edit1: TEdit;
+    Label1: TLabel;
+    modificarundigito1: TMenuItem;
+    Edit2: TEdit;
+    StaticText1: TStaticText;
+    StaticText2: TStaticText;
+    ModificarunDigito2: TMenuItem;
+    Cantidadde1: TMenuItem;
+    NumeroDentroDeOtro1: TMenuItem;
+    tomar1: TMenuItem;
+    Invertirnumeros1: TMenuItem;
+    numeroabianrio1: TMenuItem;
+    NumeroaBinario1: TMenuItem;
+    NumeroaOctal1: TMenuItem;
+    NumeroaOctal2: TMenuItem;
+    NumeroaRomano1: TMenuItem;
+    NumeroaLiteral1: TMenuItem;
+    practica1: TMenuItem;
+    practica2: TMenuItem;
+    posicionar1: TMenuItem;
+    examen1: TMenuItem;
+    examen2: TMenuItem;
+    Sacartodosnum1: TMenuItem;
+    Eliminiardosmasrepetidos1: TMenuItem;
+    eliminarnumerosrepetidos1: TMenuItem;
+    procedure FormCreate(Sender: TObject);
+    procedure CambiarValorClick(Sender: TObject);
+    procedure obtenervalor1Click(Sender: TObject);
+    procedure obtenerdigitomayor1Click(Sender: TObject);
+    procedure obtenervalor2Click(Sender: TObject);
+    procedure modificarundigito1Click(Sender: TObject);
+    procedure ModificarunDigito2Click(Sender: TObject);
+    procedure Cantidadde1Click(Sender: TObject);
+    procedure NumeroDentroDeOtro1Click(Sender: TObject);
+    procedure tomar1Click(Sender: TObject);
+    procedure Invertirnumeros1Click(Sender: TObject);
+    procedure NumeroaBinario1Click(Sender: TObject);
+    procedure NumeroaOctal1Click(Sender: TObject);
+    procedure NumeroaOctal2Click(Sender: TObject);
+    procedure NumeroaRomano1Click(Sender: TObject);
+    procedure NumeroaLiteral1Click(Sender: TObject);
+    procedure practica2Click(Sender: TObject);
+    procedure posicionar1Click(Sender: TObject);
+    procedure Sacartodosnum1Click(Sender: TObject);
+    procedure Eliminiardosmasrepetidos1Click(Sender: TObject);
+    procedure eliminarnumerosrepetidos1Click(Sender: TObject);
+  private
+    { Private declarations }
+    N: NumeroNatural;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Cantidadde1Click(Sender: TObject);
+begin
+  Label1.Caption:= 'la cantidad de digitos es :'+ IntToStr(N.CantDigit);
+end;
+
+procedure TForm1.eliminarnumerosrepetidos1Click(Sender: TObject);
+begin
+ N.ELimNumRep;
+end;
+
+procedure TForm1.Eliminiardosmasrepetidos1Click(Sender: TObject);
+
+begin
+ label1.Caption:= IntToStr(N.NumMasRep);
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+      N:= NumeroNatural.Create;
+end;
+
+procedure TForm1.Invertirnumeros1Click(Sender: TObject);
+begin
+  N.InvNum;
+end;
+
+procedure TForm1.modificarundigito1Click(Sender: TObject);
+begin
+   N.DigitDent(StrToInt(Edit2.Text),StrToInt(Edit1.Text) );
+end;
+
+procedure TForm1.ModificarunDigito2Click(Sender: TObject);
+begin
+   N.ModDigit(StrToInt(Edit2.Text),StrToInt(Edit1.Text) );
+end;
+
+procedure TForm1.NumeroaBinario1Click(Sender: TObject);
+begin
+  label1.Caption:= 'el numeor a binario: '+ N.NumToBin ;
+
+end;
+
+procedure TForm1.NumeroaLiteral1Click(Sender: TObject);
+begin
+  label1.Caption := N.NumToLit;
+end;
+
+procedure TForm1.NumeroaOctal1Click(Sender: TObject);
+begin
+  label1.Caption:= 'el numero a octal: ' + N.NumToOct ;
+end;
+
+procedure TForm1.NumeroaOctal2Click(Sender: TObject);
+begin
+   Label1.Caption:='el digito a hexadecimal es: ' + N.NumToHex;
+end;
+
+procedure TForm1.NumeroaRomano1Click(Sender: TObject);
+begin
+ label1.Caption := n.NumtoRom;
+end;
+
+procedure TForm1.NumeroDentroDeOtro1Click(Sender: TObject);
+begin
+   N.NumDent(StrToInt(Edit2.Text),StrToInt(Edit1.Text) );
+end;
+
+procedure TForm1.CambiarValorClick(Sender: TObject);
+begin
+     N.SetValue(StrtoInt(Edit1.Text));
+end;
+
+procedure TForm1.obtenerdigitomayor1Click(Sender: TObject);
+begin
+    Label1.Caption:= 'el digito mayor es :'+ IntToStr(N.GetMaxDigit);
+end;
+
+procedure TForm1.obtenervalor1Click(Sender: TObject);
+begin
+    Label1.Caption:= IntToStr(N.GetValue);
+end;
+
+procedure TForm1.obtenervalor2Click(Sender: TObject);
+begin
+     N.DelDigit(StrToInt(Edit2.Text));
+end;
+
+procedure TForm1.posicionar1Click(Sender: TObject);
+begin
+  label1.Caption:= N.NumPosi;
+end;
+
+procedure TForm1.practica2Click(Sender: TObject);
+begin
+    N.ordenar(StrTOINt(edit2.Text)) ;
+end;
+
+procedure TForm1.Sacartodosnum1Click(Sender: TObject);
+begin
+   Label1.Caption:= N.SacarAllNum(StrToInt(edit2.Text));
+end;
+
+procedure TForm1.tomar1Click(Sender: TObject);
+begin
+   Label1.Caption := 'el digito pedido es:'+ IntToStr(N.GetDigit(StrToInt(Edit2.Text))) ;
+end;
+
+end.

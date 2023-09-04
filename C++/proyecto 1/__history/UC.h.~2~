@@ -1,0 +1,39 @@
+//---------------------------------------------------------------------------
+
+#ifndef UCH
+#define UCH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <System.ImageList.hpp>
+#include <Vcl.Dialogs.hpp>
+#include <Vcl.ExtDlgs.hpp>
+#include <Vcl.ImgList.hpp>
+#include <Vcl.Menus.hpp>
+//---------------------------------------------------------------------------
+const max= 100;
+class TForm1 : public TForm
+{
+__published:	// IDE-managed Components
+	TOpenTextFileDialog *OpenTextFileDialog1;
+	TMainMenu *MainMenu1;
+	TImageList *ImageList1;
+	TMenuItem *opciones1;
+	TMenuItem *CargarNivel11;
+	TMenuItem *Probar11;
+	TMenuItem *SAlir11;
+private:	// User declarations
+	char laberinto [max][max];
+	byte m,n; // dimension del laberinto
+	int x,y; // posicion del hamster
+public:		// User declarations
+	__fastcall TForm1(TComponent* Owner);
+	void cargar (string);
+	bool BackTrack( char Lab[][max], int x , int y );
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TForm1 *Form1;
+//---------------------------------------------------------------------------
+#endif

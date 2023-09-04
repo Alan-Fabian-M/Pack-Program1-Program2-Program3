@@ -1,0 +1,156 @@
+program pelotita_loca_controlando_direccion;
+
+
+uses
+  System.SysUtils,
+  Crt32 in '..\..\..\..\Desktop\Nueva carpeta (3)\Crt32.pas';
+
+
+var lx , ly : byte; x, y, v : word; t:ansichar;
+begin
+ lx:=0;
+ ly:=0;
+ x:= 15;
+ y:= 15;
+ repeat
+
+
+   gotoxy(x,y); write('0');
+   delay(100);
+   gotoxy(x,y); write(' ');
+   // IZQUIERDA
+ if keypressed then
+   t:= readkey;
+   begin
+    if t='a' then
+
+    begin
+      x:=x-1;
+      lx:=0;
+       if x<=1 then
+        begin
+          lx:=2;
+        end;
+    end
+    end;
+    // DERECHA
+  if keypressed then
+   t:= readkey;
+   begin
+    if t='d' then
+
+    begin
+      x:=x+1;
+      lx:=0;
+    end
+
+    end;
+    // ARRIBA
+     if keypressed then
+   t:= readkey;
+   begin
+    if t='w' then
+
+    begin
+      y:=y-1;
+      ly:=0;
+    end
+    end;
+    // ABAJO
+       if keypressed then
+   t:= readkey;
+   begin
+    if t='s' then
+
+    begin
+      y:=y+1;
+      ly:=0;
+
+    end
+    end;
+   // DIAGONAL ARRIBA IZQUIERDA
+    if keypressed then
+    t:= readkey;
+     begin
+       if t='q'  then
+        begin
+          x:=x-1;
+          y:=y-1;
+        end;
+     end;
+   // DIAGONAL ARRIBA DERECHA
+     if keypressed then
+    t:= readkey;
+     begin
+       if t='e'  then
+        begin
+          x:=x+1;
+          y:=y-1;
+        end;
+     end;
+    // DIAGONAL ABAJO IZQUIERDA
+     if keypressed then
+    t:= readkey;
+     begin
+       if t='z'  then
+        begin
+          x:=x-1;
+          y:=y+1;
+        end;
+     end;
+    // DIAGONAL ABAJO DERECHA
+    if keypressed then
+    t:= readkey;
+     begin
+       if t='y'  then
+        begin
+          x:=x+1;
+          y:=y+1;
+        end;
+     end;
+
+   // borde Lx
+   if lx=1 then
+    begin
+      x:=x+1;
+      if x>=30 then
+      begin
+       x:=x-1;
+      end;
+    end;
+  if lx=2 then
+    begin
+      x:=x-1;
+       if x<=1 then
+       begin
+       x:=x+1;
+       end;
+    end;
+  if lx=0 then
+   begin
+     x:=x+0;
+   end;
+
+   // borde ly
+     if ly=1 then
+    begin
+      y:=y+1;
+
+
+    end;
+  if ly=2 then
+    begin
+      y:=y-1;
+    end;
+  if ly=0 then
+   begin
+     y:=y+0;
+   end;
+
+
+
+ until t='f';
+ writeln('FIN');
+ readln;
+
+end.

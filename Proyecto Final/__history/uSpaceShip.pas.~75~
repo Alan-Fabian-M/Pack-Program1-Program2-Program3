@@ -1,0 +1,698 @@
+unit uSpaceShip;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.ActnMan,
+  Vcl.ActnColorMaps, Vcl.Buttons, Vcl.Imaging.pngimage, Vcl.Imaging.jpeg;
+
+type
+  TSpaceShip = class(TForm)
+    ovni1: TImage;
+    ovni2: TImage;
+    ovni3: TImage;
+
+    ovni4: TImage;
+    ovni5: TImage;
+    ovni6: TImage;
+    ovni7: TImage;
+    ovni8: TImage;
+    ovni9: TImage;
+    ovni10: TImage;
+    ovni11: TImage;
+    ovni12: TImage;
+    ovni13: TImage;
+    ovni14: TImage;
+    ovni15: TImage;
+
+
+
+    Timer1: TTimer;
+    Timer2: TTimer;
+    image2: TImage;
+    Image1: TImage;
+    nave: TImage;
+    rayo: TImage;
+    vida1: TImage;
+    vida2: TImage;
+    vida3: TImage;
+    Button1: TButton;
+    continuar: TButton;
+    Button2: TButton;
+    vidaovni1: TStaticText;
+    vidaovni2: TStaticText;
+    vidaovni3: TStaticText;
+    vidaovni4: TStaticText;
+    vidaovni5: TStaticText;
+    letrero1: TStaticText;
+    muenemigos: TStaticText;
+    aparicion: TImage;
+    tvida1: TStaticText;
+    vidaovni6: TStaticText;
+    vidaovni7: TStaticText;
+    vidaovni8: TStaticText;
+    vidaovni9: TStaticText;
+    vidaovni10: TStaticText;
+    StaticText7: TStaticText;
+    gameover: TStaticText;
+    spaceship: TStaticText;
+    tvida2: TStaticText;
+    tvida3: TStaticText;
+    vida: TStaticText;
+
+    procedure Button1Click(Sender: TObject);
+
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+
+
+   procedure Timer1Timer(Sender: TObject);
+    procedure Timer2Timer(Sender: TObject);
+   procedure FormActivate(Sender: TObject);
+
+    procedure continuarClick(Sender: TObject);
+   // procedure FormActivate(Sender: TObject);
+
+    procedure FormKeydown(Sender: TObject; var Key: Word; Shift: TShiftState);
+
+
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  SpaceShip: TSpaceShip;
+
+implementation
+
+{$R *.dfm}
+ //////////////////////////////////////////////////////////////////////
+(*procedure TSpaceShip.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+
+ if (key ='s') or (key ='S') then begin
+ nave.Top:=nave.Top+10;
+ end;
+ if (key='w') or (key='W') then begin
+   nave.Top:= nave.Top-10;
+ end;
+ if (key='d') or (key='D') then begin
+   nave.Left:= nave.Left+10;
+ end;
+ if (key='a') or (key='A')then begin
+   nave.Left:= nave.Left-10;
+ end;
+
+end; *)
+
+
+
+(*procedure TSpaceShip.Timer1Timer(Sender: TObject);
+begin
+
+
+end;  *)
+
+(*procedure TSpaceShip.Timer2Timer(Sender: TObject);
+begin
+ balas.Top:= balas.Top-8;
+ if balas.Top <= -1 then begin
+    balas.top:= nave.Top;
+    balas.Left:= nave.Left;
+ end;
+
+ end;*)
+  ///////////////////////////////////////////////////////////////////////////
+
+procedure TSpaceShip.Button1Click(Sender: TObject);
+begin
+     image2.Visible:=true;
+     button1.Visible:=false;
+     button2.Visible:=false;
+     ovni1.Visible:= true;
+     ovni2.Visible:= true;
+     ovni3.Visible:= true;
+     ovni4.Visible:= true;
+     ovni5.Visible:= true;
+     ovni6.Visible:= true;
+     ovni7.Visible:= true;
+     ovni8.Visible:= true;
+     ovni9.Visible:= true;
+     ovni10.Visible:= true;
+   (*ovni11.Visible:= true;
+     ovni12.Visible:= true;
+     ovni13.Visible:= true;
+     ovni14.Visible:= true;
+     ovni15.Visible:= true;  *)
+     nave.Visible:=true;
+     image1.Visible:=false   ;
+     continuar.Visible:=false;
+     spaceship.Visible:= false;
+     rayo.Visible:=false;
+     aparicion.Visible:=false;
+      vida3.Visible:=true;
+     vida1.Visible:=true;
+     vida2.Visible:=true;
+     muenemigos.Visible:= true;
+     letrero1.Visible := true;
+     muenemigos.Caption:= '0';
+
+    ovni1.Left:= 80;
+   ovni3.Left:= 300;
+   ovni2.left:= 200;
+   nave.Left:=352;
+   rayo.left:= 352;
+   aparicion.Left:=352;
+   rayo.top:= 500;
+   nave.top:=500;
+   aparicion.top:=500;
+
+   ovni1.top:= -1000;
+   ovni2.top:= -600;
+   ovni3.top:= -800;
+   ovni4.top:= -700 ;
+   ovni5.top:= -900 ;
+   ovni6.top:= -1100 ;
+   ovni7.top:= -1300 ;
+   ovni8.top:= -1500;
+   ovni9.top:= -1700;
+   ovni10.top:= -1900;
+   //  s:=1;
+
+
+  //   continuar.Visible:=true;
+
+end;
+
+(*procedure TSpaceShip.Edit1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+     if key = 97 then
+      begin
+        image2.Visible:= false;
+        image1.Visible:= true;
+        button1.Visible:=true;
+        button2.Visible:=true;
+      end;
+
+end;
+      *)
+
+
+procedure TSpaceShip.button2Click(Sender: TObject);
+begin
+ close;
+end;
+
+procedure TSpaceShip.Button3Click(Sender: TObject);
+begin
+     image2.Visible:=false;
+     button1.Visible:=true;
+     button2.Visible:=true;
+
+
+end;
+
+procedure TSpaceShip.continuarClick(Sender: TObject);
+ begin
+     image2.Visible:=true;
+     button1.Visible:=false;
+
+     button2.Visible:=false;
+     spaceship.Visible:= false;
+     muenemigos.Visible:= true;
+     letrero1.Visible := true;
+      if vida.Caption = '1' then
+        begin
+          vida1.Visible:=false;
+        end else
+        begin
+          vida1.Visible:=true ;
+        end;
+       if vida.Caption = '2' then
+        begin
+          vida2.Visible:=false;
+        end else
+        begin
+          vida2.Visible:=true ;
+        end;
+       if vida.Caption = '3' then
+        begin
+          vida3.Visible:=false;
+        end else
+        begin
+          vida3.Visible:=true;
+        end;
+    if vidaovni1.Caption = 'mu' then
+     begin
+
+       ovni1.visible:=false;
+     end
+      else
+      begin
+        ovni1.Visible:= true;
+      end;
+       if  vidaovni2.Caption = 'mu'  then
+     begin
+        ovni2.Visible:= false;
+     end
+    else
+
+      begin
+       ovni2.Visible:= true;
+      end;
+       if  vidaovni3.Caption = 'mu' then
+     begin
+       ovni3.Visible:= false;
+     end
+       else
+      begin
+          ovni3.Visible:= true;
+      end;
+      if vidaovni4.Caption = 'mu' then
+     begin
+
+       ovni4.visible:=false;
+     end
+      else
+      begin
+        ovni4.Visible:= true;
+      end;
+       if  vidaovni5.Caption = 'mu'  then
+     begin
+        ovni5.Visible:= false;
+     end
+
+    else
+
+      begin
+       ovni5.Visible:= true;
+      end;
+       if  vidaovni6.Caption = 'mu' then
+     begin
+       ovni6.Visible:= false;
+     end
+       else
+      begin
+          ovni6.Visible:= true;
+      end;
+       if  vidaovni7.Caption = 'mu' then
+     begin
+       ovni7.Visible:= false;
+     end
+       else
+      begin
+          ovni7.Visible:= true;
+      end;
+        if  vidaovni8.Caption = 'mu' then
+     begin
+       ovni8.Visible:= false;
+     end
+       else
+      begin
+          ovni8.Visible:= true;
+      end;
+         if  vidaovni9.Caption = 'mu' then
+     begin
+       ovni9.Visible:= false;
+     end
+       else
+      begin
+          ovni9.Visible:= true;
+      end;
+        if  vidaovni10.Caption = 'mu' then
+     begin
+       ovni10.Visible:= false;
+     end
+       else
+      begin
+          ovni10.Visible:= true;
+      end;
+
+     nave.Visible:=true;
+     image1.Visible:=false   ;
+     continuar.Visible:=false;
+  end;
+
+procedure TSpaceShip.FormActivate(Sender: TObject);
+ begin
+
+    ovni1.Left:= 80;
+   ovni3.Left:= 300;
+   ovni2.left:= 200;
+   nave.Left:=250;
+   rayo.left:= 250;
+   aparicion.Left:=300;
+   rayo.top:= 300;
+   nave.top:=300;
+   aparicion.top:=300;
+
+   muenemigos.Visible:= false;
+   letrero1.Visible := false;
+ end;
+
+
+
+
+
+procedure TSpaceShip.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+ begin
+   (* if key = 27 then     // esc
+    begin
+      close;
+    end;          *)
+    // 77 (m or M)
+    // 27 (esc)
+    if key = 27 then  // esc
+    begin
+     image2.Visible:=false;
+     button1.Visible:=true;
+     button2.Visible:=true;
+     image1.Visible:=true;
+     continuar.Visible:=true;
+     ovni1.Visible:= false;
+     ovni2.Visible:= false;
+     ovni3.Visible:= false;
+     ovni4.Visible:= false;
+     ovni5.Visible:= false;
+     ovni6.Visible:= false;
+     ovni7.Visible:= false;
+     ovni8.Visible:= false;
+     ovni9.Visible:= false;
+     ovni10.Visible:= false;
+     nave.Visible:=false;
+     spaceship.Visible:= true;
+     vida1.Visible:=false;
+     vida2.Visible:=false;
+     vida3.Visible:=false;
+     gameover.Visible:=false;
+     muenemigos.Visible:= false;
+     letrero1.Visible := false;
+    end;
+
+  if vida3.Visible = true then
+  begin
+  if key=38 then
+    begin
+      nave.top:=nave.top -4;
+      if rayo.Visible = false then
+      begin
+      rayo.top:= nave.top ;
+      end;
+    end
+    else if key=40 then
+     begin
+      nave.top:= nave.top +4;
+      if rayo.Visible = false then
+      begin
+      rayo.top:= nave.top;
+      end;
+     end else
+     // letras de disparar
+    if key=65 then      // a or A
+    begin
+      rayo.Visible:=true;
+
+    end;
+
+  if key=37 then
+     begin
+      nave.left:=nave.left -4;
+
+      if rayo.Visible = false then
+       begin
+        rayo.Left:=nave.left -4;
+       end;
+     end
+     else if key=39  then
+     begin
+      nave.left:=nave.left +4;
+       if rayo.Visible = false then
+       begin
+        rayo.left:=nave.left +4;
+
+       end;
+     end;
+  end;
+ end;
+
+
+
+
+ // MOVIMIENTO DE OVNIS Y LETRERO GAME OVER
+  procedure TSpaceShip.Timer1Timer(Sender: TObject);
+  begin
+     if (image2.Visible= true ) and (vida3.Visible = true)then
+      begin
+         ovni1.Top:= ovni1.Top+2;
+         ovni2.Top:= ovni2.Top+2;
+         ovni3.Top:= ovni3.Top+2;
+         ovni4.Top:= ovni4.Top+2;
+         ovni5.Top:= ovni5.Top+2;
+         ovni6.Top:= ovni6.Top+2;
+         ovni7.Top:= ovni7.Top+2;
+         ovni8.Top:= ovni8.Top+2;
+         ovni9.Top:= ovni9.Top+2;
+         ovni10.Top:= ovni10.Top+2;
+         ovni11.Top:= ovni11.Top+2;
+         ovni12.Top:= ovni12.Top+2;
+         ovni13.Top:= ovni13.Top+2;
+         ovni14.Top:= ovni14.Top+2;
+         ovni15.Top:= ovni15.Top+2;
+
+      end;
+     if (image2.Visible= true )AND (vida3.Visible = false ) then
+      begin
+        gameover.Visible:= true;
+        gameover.top:= gameover.top +2
+      end;
+     if gameover.top>= 700 then
+     begin
+         image2.Visible:=false;
+         button1.Visible:=true;
+         button2.Visible:=true;
+         image1.Visible:=true;
+         continuar.Visible:=true;
+         ovni1.Visible:= false;
+         ovni2.Visible:= false;
+         ovni3.Visible:= false;
+         ovni4.Visible:= false;
+         ovni5.Visible:= false;
+         ovni6.Visible:= false;
+         ovni7.Visible:= false;
+         ovni8.Visible:= false;
+         ovni9.Visible:= false;
+         ovni10.Visible:= false;
+         nave.Visible:=false;
+         spaceship.Visible:= true;
+     end;
+  end;
+  ///////////////////////////////////////////////////////////////////////////////////////
+ // CHOQUE ENTRA OBJETOS Y VIDA
+  procedure TSpaceShip.Timer2Timer(Sender: TObject);
+  var
+  c,v: integer;
+  begin
+   c:= 0;
+   v:= 0;
+
+
+
+   if image2.Visible= true then
+   begin
+       if rayo.Visible = false then
+      begin
+       rayo.top:= nave.top;
+       rayo.left:= nave.left;
+      end;
+      if rayo.Visible = true then
+      begin
+        rayo.top := rayo.Top -4;
+           if rayo.Top <= -1 then begin
+            rayo.Visible:=false;
+           end;
+          if (rayo.top<= ovni1.top+20) and (rayo.top>=ovni1.top-30 ) and (rayo.Left>= ovni1.left-38) and (rayo.left<=ovni1.left+15)and (rayo.Visible = true) then
+         begin
+          c:=c+1;
+          rayo.Visible := false;
+          ovni1.Visible:=false;
+          ovni1.left:= -1;
+          vidaovni1.Caption:= 'mu';
+
+         end;
+          if (rayo.top<= ovni2.top+20) and (rayo.top>=ovni2.top-30 ) and (rayo.Left>= ovni2.left-38) and (rayo.left<=ovni2.left+15)and (rayo.Visible = true) then
+         begin
+          c:=c+1;
+          rayo.Visible := false;
+          ovni2.Visible:=false;
+          ovni2.left:= -1;
+          vidaovni2.Caption := 'mu';
+
+         end;
+          if (rayo.top<= ovni3.top+20) and (rayo.top>=ovni3.top-30 ) and (rayo.Left>= ovni3.left-38) and (rayo.left<=ovni3.left+15)and (rayo.Visible = true) then
+         begin
+         c:= c+1;
+         rayo.Visible := false;
+         ovni3.Visible:=false;
+         ovni3.left:= -1;
+         vidaovni3.Caption := 'mu' ;
+
+         end;
+           if (rayo.top<= ovni4.top+20) and (rayo.top>=ovni4.top-30 ) and (rayo.Left>= ovni4.left-38) and (rayo.left<=ovni4.left+15)and (rayo.Visible = true) then
+         begin
+         c:= c+1;
+         rayo.Visible := false;
+         ovni4.Visible:=false;
+         ovni4.left:= -1;
+         vidaovni4.Caption := 'mu' ;
+
+         end;
+           if (rayo.top<= ovni5.top+20) and (rayo.top>=ovni5.top-30 ) and (rayo.Left>= ovni5.left-38) and (rayo.left<=ovni5.left+15)and (rayo.Visible = true) then
+         begin
+         c:= c+1;
+         rayo.Visible := false;
+         ovni5.Visible:=false;
+         ovni5.left:= -1;
+         vidaovni5.Caption := 'mu' ;
+
+         end;
+           if (rayo.top<= ovni6.top+20) and (rayo.top>=ovni6.top-30 ) and (rayo.Left>= ovni6.left-38) and (rayo.left<=ovni6.left+15)and (rayo.Visible = true) then
+         begin
+         c:= c+1;
+         rayo.Visible := false;
+         ovni6.Visible:=false;
+         ovni6.left:= -1;
+         vidaovni6.Caption := 'mu' ;
+
+         end;
+            if (rayo.top<= ovni7.top+20) and (rayo.top>=ovni7.top-30 ) and (rayo.Left>= ovni7.left-38) and (rayo.left<=ovni7.left+15)and (rayo.Visible = true) then
+         begin
+         c:= c+1;
+         rayo.Visible := false;
+         ovni7.Visible:=false;
+         ovni7.left:= -1;
+         vidaovni7.Caption := 'mu' ;
+
+         end;
+            if (rayo.top<= ovni8.top+20) and (rayo.top>=ovni8.top-30 ) and (rayo.Left>= ovni8.left-38) and (rayo.left<=ovni8.left+15)and (rayo.Visible = true) then
+         begin
+         c:= c+1;
+         rayo.Visible := false;
+         ovni8.Visible:=false;
+         ovni8.left:= -1;
+         vidaovni8.Caption := 'mu' ;
+
+         end;
+            if (rayo.top<= ovni9.top+20) and (rayo.top>=ovni9.top-30 ) and (rayo.Left>= ovni9.left-38) and (rayo.left<=ovni9.left+15)and (rayo.Visible = true) then
+         begin
+         c:= c+1;
+         rayo.Visible := false;
+         ovni9.Visible:=false;
+         ovni9.left:= -1;
+         vidaovni9.Caption := 'mu' ;
+
+         end;
+         if (rayo.top<= ovni10.top+20) and (rayo.top>=ovni10.top-30 ) and (rayo.Left>= ovni10.left-38) and (rayo.left<=ovni10.left+15)and (rayo.Visible = true) then
+         begin
+         c:= c+1;
+         rayo.Visible := false;
+         ovni10.Visible:=false;
+         ovni10.left:= -1;
+         vidaovni10.Caption := 'mu' ;
+
+         end;
+         if c=1 then
+          begin
+
+           muenemigos.Caption:= inttostr(StrToInt(muenemigos.caption)+1);
+            c:=0;
+          end;
+      end;
+
+      if (nave.top<= ovni1.top+20) and (nave.top>=ovni1.top-30 ) and (nave.Left>= ovni1.left-38) and (nave.left<=ovni1.left+15) then
+      begin
+         v:=v+1;
+         nave.Visible := false;
+      end;
+       if (nave.top<= ovni2.top+20) and (nave.top>=ovni2.top-30 ) and (nave.Left>= ovni2.left-38) and (nave.left<=ovni2.left+15) then
+      begin
+        v:=v+1;
+        nave.Visible := false;
+      end;
+       if (nave.top<= ovni3.top+20) and (nave.top>=ovni3.top-30 ) and (nave.Left>= ovni3.left-38) and (nave.left<=ovni3.left+15) then
+       begin
+          v:=v+1;
+          nave.Visible := false;
+       end;
+          if (nave.top<= ovni4.top+20) and (nave.top>=ovni4.top-30 ) and (nave.Left>= ovni4.left-38) and (nave.left<=ovni4.left+15) then
+       begin
+          v:=v+1;
+          nave.Visible := false;
+       end;
+          if (nave.top<= ovni5.top+20) and (nave.top>=ovni5.top-30 ) and (nave.Left>= ovni5.left-38) and (nave.left<=ovni5.left+15) then
+       begin
+          v:=v+1;
+          nave.Visible := false;
+       end;
+          if (nave.top<= ovni6.top+20) and (nave.top>=ovni6.top-30 ) and (nave.Left>= ovni6.left-38) and (nave.left<=ovni6.left+15) then
+       begin
+          v:=v+1;
+          nave.Visible := false;
+       end;
+           if (nave.top<= ovni7.top+20) and (nave.top>=ovni7.top-30 ) and (nave.Left>= ovni7.left-38) and (nave.left<=ovni7.left+15) then
+       begin
+          v:=v+1;
+          nave.Visible := false;
+       end;
+           if (nave.top<= ovni8.top+20) and (nave.top>=ovni8.top-30 ) and (nave.Left>= ovni8.left-38) and (nave.left<=ovni8.left+15) then
+       begin
+          v:=v+1;
+          nave.Visible := false;
+       end;
+           if (nave.top<= ovni9.top+20) and (nave.top>=ovni9.top-30 ) and (nave.Left>= ovni9.left-38) and (nave.left<=ovni9.left+15) then
+       begin
+          v:=v+1;
+          nave.Visible := false;
+       end;
+           if (nave.top<= ovni10.top+20) and (nave.top>=ovni10.top-30 ) and (nave.Left>= ovni10.left-38) and (nave.left<=ovni10.left+15) then
+       begin
+          v:=v+1;
+          nave.Visible := false;
+       end;
+       if v>=1 then
+       begin
+        vida.Caption:= inttostr(StrToInt(vida.caption)+1);
+       end;
+       if vida.Caption = '1' then
+        begin
+          vida1.Visible:=false;
+        end;
+       if vida.Caption = '2' then
+        begin
+          vida2.Visible:=false;
+        end;
+       if vida.Caption = '3' then
+        begin
+          vida3.Visible:=false;
+        end;
+      if (nave.Visible = false) and (image2.Visible= true) then
+      begin
+       nave.top := aparicion.top;
+       nave.left :=  aparicion.left;
+       nave.Visible:= true;
+      end;
+
+
+   end;
+
+
+  end;
+
+
+end.
+

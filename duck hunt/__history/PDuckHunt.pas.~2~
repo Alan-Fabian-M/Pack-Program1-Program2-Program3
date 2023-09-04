@@ -1,0 +1,61 @@
+unit PDuckHunt;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.MPlayer,
+  System.ImageList, Vcl.ImgList;
+
+type
+  TForm1 = class(TForm)
+    MediaPlayer1: TMediaPlayer;
+    MPMusicaFondo: TTimer;
+    ImagePato: TImageList;
+    reloj: TTimer;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    procedure FlyDerecha;
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ TForm1 }
+
+procedure TForm1.FlyDerecha;
+begin
+   ImagePato.Draw(canvas,ejeX,ejeY,derecha);
+
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+
+ // posicion inicial del pato en ejeX y ejeY
+ ejeX:= 1000;
+ ejeY:= 400;
+
+
+   // posiciones iniciales de las animacioines del pato
+ Derecha:= 0 ; // patos de secuencia a la derecha de 0 a 2 en la ImageList
+ Izquierda:=3 // patos en secuencia de 3 a 5  en la imageList
+ Arriba:= 6 // patos en secuencia de 6 a 8  en la imageList
+ Abajo := 9 //patos en secuencia de 9 a 11  en la imageList
+ Arribaderecha := 12 // patos en secuencia de 12 a 14  en la imageList
+ ArribaIzquierda := 15 // patos en secuencia de 15 a 17  en la imageList
+ AbajoDerecha:= 18 // patos en secuencia de 18 a 20  en la imageList
+ AbajoIzquierda := 21 // patos en secuencia de 21 a 23  en la imageList
+ PatoMuerto := 24 // patos en secuencia de 24 a 26  en la imageList
+ PartoCayendo := 27 //patos en secuencia de 27 a 29  en la imageList
+
+end;
+
+end.

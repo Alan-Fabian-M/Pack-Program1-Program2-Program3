@@ -1,0 +1,291 @@
+unit FString;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Menus, Cstring ;
+
+type
+  TForm1 = class(TForm)
+    MainMenu1: TMainMenu;
+    Edit1: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    todomayusculas2: TMenuItem;
+    asdasd1: TMenuItem;
+    asdas1: TMenuItem;
+    asdasdasd1: TMenuItem;
+    AdicionarCaracter1: TMenuItem;
+    AdicionarString1: TMenuItem;
+    InsertarChar1: TMenuItem;
+    VerCaracter1: TMenuItem;
+    ElimnarCaracter1: TMenuItem;
+    EliminarnCaracter1: TMenuItem;
+    modificarcaracter1: TMenuItem;
+    modificarncaracter1: TMenuItem;
+    todomayusculas1: TMenuItem;
+    todominusculas1: TMenuItem;
+    eliminarvocales1: TMenuItem;
+    prueba1: TMenuItem;
+    prueba2: TMenuItem;
+    cantidaddepalabras1: TMenuItem;
+    PalabraConMayorlongitud1: TMenuItem;
+    practica1: TMenuItem;
+    practica2: TMenuItem;
+    BuscarPalabra1: TMenuItem;
+    Primeraletraamayusculas1: TMenuItem;
+    Invertirpalabras1: TMenuItem;
+    EliminarPalabras1: TMenuItem;
+    InvertirPalabrasEnUnaCadena1: TMenuItem;
+    RemplazarUnaPalabra1: TMenuItem;
+    BuscarLaSubCadena1: TMenuItem;
+    FechaMenor1: TMenuItem;
+    Aritmetico1: TMenuItem;
+    Contadordevocalesalfinalyalprincipiodelapalabra1: TMenuItem;
+    SumadeReales1: TMenuItem;
+    resolvedordepoli1: TMenuItem;
+    Eliminarvocalesrepetidas1: TMenuItem;
+    procedure FormCreate(Sender: TObject);
+    procedure eliminarncaracter1Click(Sender: TObject);
+    procedure modificarcaracter1Click(Sender: TObject);
+    procedure vercaracter1Click(Sender: TObject);
+    procedure modificarncaracter1Click(Sender: TObject);
+    procedure todomayusculas1Click(Sender: TObject);
+    procedure invertir1Click(Sender: TObject);
+    procedure todominusculas1Click(Sender: TObject);
+    procedure asdasd1Click(Sender: TObject);
+    procedure asdas1Click(Sender: TObject);
+    procedure asdasdasd1Click(Sender: TObject);
+    procedure AdicionarCaracter1Click(Sender: TObject);
+    procedure InsertarChar1Click(Sender: TObject);
+    procedure ElimnarCaracter1Click(Sender: TObject);
+    procedure AdicionarString1Click(Sender: TObject);
+    procedure eliminarvocales1Click(Sender: TObject);
+    procedure prueba2Click(Sender: TObject);
+    procedure siguientepalabra1Click(Sender: TObject);
+    procedure cantidaddepalabras1Click(Sender: TObject);
+    procedure PalabraConMayorlongitud1Click(Sender: TObject);
+    procedure practica2Click(Sender: TObject);
+    procedure BuscarPalabra1Click(Sender: TObject);
+    procedure Primeraletraamayusculas1Click(Sender: TObject);
+    procedure inv1Click(Sender: TObject);
+    procedure Invertirpalabras1Click(Sender: TObject);
+    procedure EliminarPalabras1Click(Sender: TObject);
+    procedure InvertirPalabrasEnUnaCadena1Click(Sender: TObject);
+    procedure RemplazarUnaPalabra1Click(Sender: TObject);
+    procedure BuscarLaSubCadena1Click(Sender: TObject);
+    procedure FechaMenor1Click(Sender: TObject);
+    procedure Aritmetico1Click(Sender: TObject);
+    procedure Contadordevocalesalfinalyalprincipiodelapalabra1Click(
+      Sender: TObject);
+    procedure SumadeReales1Click(Sender: TObject);
+    procedure resolvedordepoli1Click(Sender: TObject);
+    procedure Eliminarvocalesrepetidas1Click(Sender: TObject);
+  private
+    { Private declarations }
+    T: cadena ;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.AdicionarCaracter1Click(Sender: TObject);
+begin
+ T.addchar(edit3.Text[1]) ;
+
+end;
+
+procedure TForm1.AdicionarString1Click(Sender: TObject);
+begin
+   T.AddStr(edit3.Text);
+end;
+
+procedure TForm1.Aritmetico1Click(Sender: TObject);
+begin
+label1.Caption:=t.Aritmetica;
+end;
+
+procedure TForm1.asdas1Click(Sender: TObject);
+begin
+  label1.Caption:= T.GetChar;
+   label2.Caption:= IntToStr(T.GetLong);
+end;
+
+procedure TForm1.asdasd1Click(Sender: TObject);
+begin
+ T.SetChar(edit1.Text);
+end;
+
+procedure TForm1.asdasdasd1Click(Sender: TObject);
+begin
+  showmessage(IntToStr(t.GetLong));
+end;
+
+procedure TForm1.BuscarLaSubCadena1Click(Sender: TObject);
+begin
+   label1.Caption:= IntToStr(t.ContSubCad(edit3.Text));
+end;
+
+procedure TForm1.BuscarPalabra1Click(Sender: TObject);
+
+begin
+ label1.Caption:= IntToStr(t.BusPal(edit3.Text));
+end;
+
+procedure TForm1.cantidaddepalabras1Click(Sender: TObject);
+begin
+  label1.Caption:= IntToStr(T.CantidadPalabras) ;
+end;
+
+procedure TForm1.Contadordevocalesalfinalyalprincipiodelapalabra1Click(
+  Sender: TObject);
+begin
+  label1.Caption:= t.ContVocPrinUlt;
+end;
+
+procedure TForm1.eliminarncaracter1Click(Sender: TObject);
+begin
+  t.DelnChar(edit3.Text[1])
+end;
+
+procedure TForm1.EliminarPalabras1Click(Sender: TObject);
+begin
+t.ElimPal(edit3.Text);
+end;
+
+procedure TForm1.eliminarvocales1Click(Sender: TObject);
+begin
+  t.DelVoc;
+end;
+
+procedure TForm1.Eliminarvocalesrepetidas1Click(Sender: TObject);
+
+begin
+ t.ElimVocRep;
+end;
+
+procedure TForm1.ElimnarCaracter1Click(Sender: TObject);
+begin
+ t.delChar(StrToInt(Edit2.Text));
+end;
+
+procedure TForm1.FechaMenor1Click(Sender: TObject);
+begin
+  label1.Caption:= DateToStr(t.DateMenor);
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  T := cadena.Create;
+end;
+
+procedure TForm1.InsertarChar1Click(Sender: TObject);
+begin
+ T.InsChar(StrToInt(edit2.Text),edit3.Text[1]);
+end;
+
+procedure TForm1.inv1Click(Sender: TObject);
+
+begin
+  t.Inv(StrToInt(edit2.Text[1]),StrToInt(edit2.Text[3]))
+end;
+
+procedure TForm1.invertir1Click(Sender: TObject);
+begin
+  T.Invert;
+end;
+
+procedure TForm1.Invertirpalabras1Click(Sender: TObject);
+begin
+ t.Invcad;
+end;
+
+procedure TForm1.InvertirPalabrasEnUnaCadena1Click(Sender: TObject);
+begin
+  t.InvPal;
+end;
+
+procedure TForm1.modificarcaracter1Click(Sender: TObject);
+begin
+  t.modChar(StrToInt(edit2.Text),edit3.Text[1]);
+end;
+
+procedure TForm1.modificarncaracter1Click(Sender: TObject);
+begin
+  T.ModnChar(edit3.Text[1],edit3.Text[3]);
+end;
+
+procedure TForm1.PalabraConMayorlongitud1Click(Sender: TObject);
+begin
+  label1.Caption:= t.PalMay;
+end;
+
+procedure TForm1.practica2Click(Sender: TObject);
+begin
+ t.Invert;
+end;
+
+procedure TForm1.Primeraletraamayusculas1Click(Sender: TObject);
+begin
+  t.ConvPrimCarc;
+end;
+
+procedure TForm1.prueba2Click(Sender: TObject);
+begin
+label1.Caption:= t.Buscar(StrToInt(edit2.Text));
+end;
+
+procedure TForm1.RemplazarUnaPalabra1Click(Sender: TObject);
+begin
+ t.RemPalCad(edit2.Text,edit3.Text);
+end;
+
+procedure TForm1.resolvedordepoli1Click(Sender: TObject);
+begin
+ label1.Caption:= T.Polinomio(StrToInt(Edit2.Text));
+end;
+
+procedure TForm1.siguientepalabra1Click(Sender: TObject);
+var
+b : word ;
+begin
+b := StrToInt(edit2.Text);
+ label1.Caption:= T.SiguientePalabra(b);
+end;
+
+procedure TForm1.SumadeReales1Click(Sender: TObject);
+var
+i : Smallint;
+begin
+  i := StrToInt(Edit2.Text);
+  label1.Caption:= t.SumReal(i);
+end;
+
+procedure TForm1.todomayusculas1Click(Sender: TObject);
+begin
+ t.ToUpper;
+end;
+
+procedure TForm1.todominusculas1Click(Sender: TObject);
+begin
+  t.ToLower;
+end;
+
+procedure TForm1.vercaracter1Click(Sender: TObject);
+begin
+label1.Caption:= t.SeeChar(StrToInt(edit2.Text));
+end;
+
+end.

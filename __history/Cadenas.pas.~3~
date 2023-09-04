@@ -1,0 +1,146 @@
+unit Cadenas;
+
+interface
+ function EspIzq  (x:string): string ;
+// function EspDer  (x:string): string ;
+
+
+ function EsVocal (x:char):boolean;
+ function ContEsp (x:string):byte;
+ function ContLet (x:string):cardinal;
+ function ContPal (x:string):byte;
+
+
+implementation
+ var
+ vocales: set of Char = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'];
+ consonantes : set of Char = ['A'..'Z'];
+ consonante : set of char = ['a'..'z'];
+
+ function EsVocal (x:char):boolean;
+ var
+ r: boolean;
+  begin
+    r:=false;
+    if x in vocales then
+
+
+     begin
+
+      r:= true;
+
+     end;
+
+
+
+    EsVocal:= r;
+
+  end;
+
+  // cantidades de espacios
+  function ContEsp (x:string):byte ;
+  var
+   i, c, n:cardinal;
+  begin
+    i:=1;
+    c:=0;
+    n:= length(x);
+     while i<=n do
+       begin
+        if x[i]=' ' then
+         begin
+          c:= c+1;
+
+         end;
+        i:= i+1;
+       end;
+
+   ContEsp:= c;
+
+  end;
+
+  //  cantidad de letras
+  function ContLet (x:string):cardinal;
+  var
+    i, c, n:cardinal;
+  begin
+   i:=1;
+   c:=0;
+   n:=length(x);
+   while i<=n do
+    begin
+      if x[i] in consonantes then
+       begin
+        c:= c+1;
+       end;
+      if x[i] in consonante then
+       begin
+        c:= c+1;
+       end;
+       i:=i+1;
+    end;
+    ContLet:= c;
+
+  end;
+
+
+
+
+ // eliminar espacios de la izquierda
+ function EspIzq  (x:string): string ;
+  var i, n, c: cardinal;
+
+   begin
+    i:= 1;
+    n:=length (x);
+    c:=0;
+     while i<=n do
+      begin
+        if x[i]=' ' then
+         begin
+          c:= c+1;
+         end
+         else begin
+          i:= n;
+         end;
+         i := i+1;
+      end;
+     delete(x,1,c) ;
+     EspIzq := x;
+   end;
+
+  // contador de palabras
+
+  function ContPal (x:string):byte;
+    var   c, i, n, s: byte;
+
+    begin
+     i:=1;
+     c:=0;
+     n:=length (x);
+     s:=0;
+
+     while i<=n do
+      begin
+       if x[i]=' ' then
+        begin
+          s:=0;
+        end;
+       if (x[i] in consonante) and (s=0) or (x[i] in consonantes) and (s=0) then
+        begin
+          c:= c+1;
+          s:= 1;
+        end;
+          i := i+1;
+      end;
+
+
+      ContPal:= c;
+
+    end;
+
+
+
+
+
+end.

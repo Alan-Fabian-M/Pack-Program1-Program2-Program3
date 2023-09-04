@@ -1,0 +1,12 @@
+program suma_de_N_numeros;
+
+var t, x:extended;
+s, n:real;
+
+begin
+writeln('cuantos numeros utilizara');
+readln(t);
+x:= 0;
+s:= 0;
+ white x<t do
+end.

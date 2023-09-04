@@ -1,0 +1,71 @@
+unit CVector;
+
+
+
+interface
+
+ const
+  n = 1000;
+ type
+  vector = class
+   private
+      Dimensiones : word ;
+      Elementos : array [1..N] of real ;
+   public
+      Function Dim : word ;
+      procedure  AddElement (e: Real);
+      procedure Modelemnt (p : word ; e : real);
+      procedure InsElement (p : word ; e : real);
+      procedure DelElement (p : word );
+      function  getElement  (p : word ): real ;
+      Function Sumar: real ;
+      Function Mayor  : real ;
+  end;
+
+  implementation
+
+{ vector }
+
+procedure vector.AddElement(e: Real);
+begin
+  Inc(dimensiones);
+  elementos[dimensiones] := e ;
+
+end;
+
+procedure vector.DelElement(p: word);
+begin
+
+end;
+
+function vector.Dim: word;
+begin
+  Result := Dimensiones;
+end;
+
+function vector.getElement(p: word): real;
+begin
+
+end;
+
+procedure vector.InsElement(p: word; e: real);
+begin
+
+end;
+
+function vector.Mayor: real;
+begin
+
+end;
+
+procedure vector.Modelemnt(p: word; e: real);
+begin
+
+end;
+
+function vector.Sumar: real;
+begin
+
+end;
+
+end.

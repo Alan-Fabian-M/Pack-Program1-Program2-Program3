@@ -1,0 +1,61 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void InvertirNum ( TStringGrid *v, Cardinal &n, Byte &c )
+{ byte b, num1, num2;
+ if (n > 9) {
+  b = n % 100;
+  n = n / 100;
+  InvertirNum(v ,n, c);
+  num1 = b % 10;
+  num2 = b / 10;
+  v->Cells[c][0] = num1 * 10 + num2 ;
+   c++;
+ }else if (n > 0) {
+		   v->Cells[c][0] = n;
+			c++;
+ }
+
+ }
+
+
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+
+  Cardinal n = StrToInt(Edit1->Text);
+  Byte c = 0 ;
+  InvertirNum(StringGrid1 , n, c);
+}
+//---------------------------------------------------------------------------
+
+Char UltChar (AnsiString pal)
+{
+
+}
+AnsiString UltCar (TStringGrid *v, Byte &n)
+{ AnsiString pal, a ;
+	pal = UltCar(v, n-1);
+
+
+
+
+	return pal;
+}
+void __fastcall TForm1::Button3Click(TObject *Sender)
+{
+	Edit1->Text =  UltCar (StringGrid1);
+}
+//---------------------------------------------------------------------------

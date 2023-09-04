@@ -1,0 +1,31 @@
+program ejercicio_23_5;
+var a, b, c, s, i, l, t: word;
+begin
+writeln('serie: a,a+1,a+2,.....b,a,a+1,a+2,....b');
+write('coloque el numero que se sumara en la serie:');
+ readln(a);
+write('cuantas veces quiere que se sume:');
+ readln(c);
+write('cuantas cifras quiere que se muestre desde el primer digito que ingreso:');
+ readln(b);
+ t := a;
+ s := 1;
+ i := 0;
+ repeat
+  writeln(t);
+   if l = c then
+    begin
+     t := a;
+     s := 1;
+     l := 0;
+    end
+   else
+    begin
+     t := a+s;
+     s := s+1;
+     l := l+1;
+    end;
+  i := i+1;
+ until i = b;
+ readln;
+end.

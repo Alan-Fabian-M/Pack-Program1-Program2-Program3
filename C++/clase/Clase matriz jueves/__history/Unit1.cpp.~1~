@@ -1,0 +1,41 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void LlenarF4(TStringGrid *A, Byte f, byte n , byte d)
+{
+	if (n > 0){ // caso general
+	 LlenarF4(A,f,n-1,d);
+	 A->Cells[n-1][f]= d ;
+	 A->Cells[f][n-1]= d ;
+	}
+}
+
+void Cargar4(TStringGrid *A, byte m)
+{
+ if (m>0 ) { // caso general
+	 Cargar4 (A, m-1);
+	 LlenarF4(A, m-1, m ,m);
+	// LlenarC4(A,m-1,m,m);
+
+ }
+}
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{  StringGrid1->RowCount=StrToInt(Edit1->Text);
+   StringGrid1->ColCount=StringGrid1->RowCount;
+   Cargar4(StringGrid1, StringGrid1->RowCount);
+
+}
+//---------------------------------------------------------------------------

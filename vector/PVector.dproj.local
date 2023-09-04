@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/07/25 00:32:31.000.995,=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/12/06 17:23:55.000.690,=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/12/06 17:24:02.000.536,=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2021/12/06 19:21:12.000.117,C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\vector\CVector.pas=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2021/12/06 19:21:20.000.955,C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\vector\Uvector.dfm=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2021/12/06 19:21:20.000.955,C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\vector\Uvector.pas=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/12/06 19:21:24.000.916,C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\vector\PVector.dproj=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2023/07/21 17:10:04.193,=C:\Users\Hp\Documents\Embarcadero\Studio\Projects\vector\Unit1.pas</Transaction>
+    <Transaction>2023/07/21 17:31:33.856,C:\Users\Hp\Documents\Embarcadero\Studio\Projects\vector\UCVectorString.pas=C:\Users\Hp\Documents\Embarcadero\Studio\Projects\vector\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

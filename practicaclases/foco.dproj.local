@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/07/25 00:32:31.000.995,=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/10/04 17:42:06.000.650,=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/10/04 17:42:10.000.928,=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2021/10/04 17:42:45.000.589,C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Unit2.pas=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\practicaclases\UCfoco.pas</Transaction>
+    <Transaction>2021/10/04 17:42:55.000.367,C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\practicaclases\UFprincipal.dfm</Transaction>
+    <Transaction>2021/10/04 17:42:55.000.367,C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\practicaclases\UFprincipal.pas</Transaction>
+    <Transaction>2021/10/04 17:43:02.000.505,C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\practicaclases\foco.dproj</Transaction>
+    <Transaction>2021/10/06 13:48:27.086,=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\practicaclases\Unit1.pas</Transaction>
+    <Transaction>2021/10/06 13:53:18.696,C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\practicaclases\UCimpresora.pas=C:\Users\ALAN\Documents\Embarcadero\Studio\Projects\practicaclases\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
